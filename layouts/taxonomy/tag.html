@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{ .Title }} | HexOctal</title>
+		<link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+		<link type="text/css" rel="stylesheet" href="/stylesheets/taxonomy.css">
+		<link type="text/css" rel="stylesheet" href="/stylesheets/journal.css">
+		<link type="text/css" rel="stylesheet" href="/stylesheets/syntax.css">
+		<!-- Fonts -->
+		<link type="text/css" rel="stylesheet" href="/fonts/fira-code/style.css">
+	</head>
+	<body>
+		{{ partial "header" . }}
+		<main>
+			<!-- Just like journal list -->
+			<!-- FROM HERE -->
+			<section>
+				<!-- Output posts -->
+				{{ $paginator := .Paginate (where .Data.Pages "Type" "journal") }}
+				{{ with $paginator }}
+				{{ range .Pages }}
+				<article class="post-list-item">
+					<header>
+						<h1 id="post-title">
+							<a href="{{.Permalink}}">{{.Title}}</a>
+						</h1>
+						<h2 id="post-info" class="post-sub-title">
+							Posted {{.Date.Format "Monday, Jan 2, 2006"}} in {{range .Params.categories}}<a href="/categories/{{. | urlize}}">{{.}}</a>{{end}}
+						</h2>
+						<h2 id="post-tags" class="post-sub-title">
+							Tags:
+							<ul>
+								{{ range .Params.tags }}
+								<li><a href="/tags/{{. | urlize}}">{{.}}</a></li>
+								{{ end }}
+							</ul>
+						</h2>
+					</header>
+					<section id="post">
+						{{ .Summary }}
+					</section>
+				</article>
+				{{ end }}
+				{{ end }}
+				<!-- Pagination -->
+				{{ partial "pagination" . }}
+			</section>
+			{{ partial "aside" . }}
+			<!-- TO HERE -->
+		</main>
+		<footer>
+			<div>© 2021 HexOctal</div>
+		</footer>
+	</body>
+</html>

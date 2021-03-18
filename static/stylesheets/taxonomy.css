@@ -1,0 +1,24 @@
+#taxonomy-list {
+	width: 100%;
+	padding: 0 5rem;
+}
+
+#taxonomy-list > h1 {
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--c-accent);
+}
+
+#taxonomy-list > ul {
+	font-size: 1.3rem;
+}
+
+#taxonomy-list > ul > li {
+	list-style: disc;
+	margin-bottom: 1rem;
+}
+
+#taxonomy-list > ul > li > a {
+	color: var(--c-main);
+	text-decoration: underline;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ .Title }} | HexOctal</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css">
+    <link type="text/css" rel="stylesheet" href="/stylesheets/syntax.css">
+	<!-- Fonts -->
+    <link type="text/css" rel="stylesheet" href="/fonts/fira-code/style.css">
+</head>
+<body>
+    {{ partial "header" . }}
+    <main>
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+    <footer>
+        <div>© 2021 HexOctal</div>
+    </footer>
+</body>
+</html>

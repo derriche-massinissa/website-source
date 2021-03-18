@@ -1,0 +1,27 @@
+{{ define "main" }}
+<link rel="stylesheet" href="/stylesheets/journal.css" type="text/css">
+<section>
+	<article>
+		<header>
+			<h1 id="post-title">
+				<a href="{{.Permalink}}">{{.Title}}</a>
+			</h1>
+			<h2 id="post-info" class="post-sub-title">
+				Posted {{.Date.Format "Monday, Jan 2, 2006"}} in {{range .Params.categories}}<a href="/categories/{{. | urlize}}">{{.}}</a>{{end}}
+			</h2>
+			<h2 id="post-tags" class="post-sub-title">
+				Tags:
+				<ul>
+					{{ range .Params.tags }}
+					<li><a href="/tags/{{. | urlize}}">{{.}}</a></li>
+					{{ end }}
+				</ul>
+			</h2>
+		</header>
+		<section id="post">
+			{{ .Content }}
+		</section>
+	</article>
+</section>
+{{ partial "aside" . }}
+{{ end }}

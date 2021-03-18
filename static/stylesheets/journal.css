@@ -1,0 +1,320 @@
+/* https://www.1001fonts.com/users/MartinArguello/ */
+@font-face {
+	font-family: "Clip";
+	src: url("/fonts/Clip.ttf");
+}
+/* https://www.1001fonts.com/users/vladimirnikolic/ */
+@font-face {
+	font-family: "Biysk";
+	src: url("/fonts/Biysk.ttf");
+}
+
+/*
+ * Colors in HCL
+ * =============
+ * Light color:
+ *  - Hue: X
+ *  - Chroma: 96
+ *  - Luminance: 63
+ *
+ *  Dark color:
+ *  - Hue: X
+ *  - Chroma: 7
+ *  - Luminance: 13
+ *
+ *  Where "X" is the accent hue:
+ *  Pink: 306
+ */
+
+:root {
+	--c-main: #eee;
+
+	--c-accent: #e366e7;
+	--c-accent-hsl: 299, 82%, 70%;
+
+	--c-bg: #291E2A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+}
+a {
+	font-weight: normal;
+}
+blockquote, code, p, pre {
+	line-height: 1.5;
+	letter-spacing: .3px;
+}
+
+
+/* Main Site Content */
+body > main {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+}
+
+/* Posts */
+body > main > section {
+	width: 100%;
+	padding: var(--gutter) var(--gutter) 0;
+}
+body > main > section > article {
+	width: 100%;
+	padding: 0;
+	border-bottom: solid 3px var(--c-bg-alt);
+}
+.post-list-item:not(:last-child) {
+	padding-bottom: 1rem;
+	border-bottom: 1px solid hsla(0, 100%, 100%, 20%);
+	margin-bottom: 3rem;
+}
+body > main > section > article > header {
+	width: 100%;
+}
+#post-title {
+	font-size: 2.3rem;
+	margin: 0 0 1.5rem;
+
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+
+	padding-bottom: 1rem;
+	border-bottom: 2px solid var(--c-accent);
+}
+#post-title > a {
+	color: var(--c-accent);
+	text-decoration: none;
+	font-weight: 700;
+	background-color: var(--c-bg);
+}
+.post-sub-title {
+	margin: 1.5rem 0;
+	font-family: "Biysk", sans-serif;
+	font-size: 1.3rem;
+
+	padding-bottom: 1.5rem;
+}
+#post-info {
+	color: var(--c-accent);
+	border-bottom: 2px dotted var(--c-accent);
+}
+#post-info > a {
+	color: var(--c-accent);
+}
+#post-tags {
+	color: var(--c-main);
+	border-bottom: 2px dotted var(--c-main);
+}
+#post-tags > ul {
+	list-style: none;
+	display: inline;
+	margin: 0;
+	padding: 0;
+}
+#post-tags > ul > li{
+	display: inline;
+}
+#post-tags > ul > li:before {
+	content: "#";
+}
+#post-tags > ul > li:not(:last-child):after {
+	content: ", ";
+}
+#post-tags > ul > li > a {
+	color: var(--c-main);
+	text-decoration: none;
+}
+#post-tags > ul > li > a:hover {
+	text-decoration: underline;
+}
+
+/* The post */
+#post {
+	margin: 2rem 0;
+	padding: 0;
+}
+/* The post - End*/
+
+/* Pagination */
+.pagination {
+	list-style: none;
+	padding: 0;
+	margin: 1rem 0;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+}
+.pagination > li {
+}
+.pagination > li.current {
+}
+.pagination > li.current > a,
+.pagination > li.current > a:hover {
+	color: var(--c-accent);
+	background-color: transparent;
+	font-weight: bold;
+	border-bottom: solid 3px;
+}
+.pagination > li > a {
+	color: var(--c-main);
+	text-decoration: none;
+	display: block;
+	padding: 1rem;
+}
+.pagination > li > a:hover {
+	color: var(--c-bg);
+	background-color: var(--c-accent);
+}
+/* Pagination - End */
+
+/* Aside */
+body > main > aside {
+	font-size: 1.1rem;
+	margin-top: 2rem;
+	width: 100%;
+	padding: 0 var(--gutter);
+}
+/* Tags */
+body > main > aside > h3 {
+	margin: 1rem 0;
+	padding: 1rem 0;
+	border-top: 2px solid var(--c-accent);
+	border-bottom: 2px dotted var(--c-accent);
+	text-align: center;
+}
+body > main > aside > h3 > a {
+	font-size: 1.6rem;
+	color: var(--c-accent);
+	text-decoration: none;
+	font-weight: bold;
+}
+body > main > aside > ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	text-align: justify;
+	text-align-last: justify;
+}
+#categories-list {
+	border-bottom: 2px solid var(--c-accent);
+	padding-bottom: 1rem;
+}
+body > main > aside > ul > li {
+	display: inline;
+}
+body > main > aside > ul > li > a {
+	color: var(--c-main);
+	text-decoration: none;
+}
+body > main > aside > ul > li > a:hover {
+	text-decoration: underline;
+}
+/* Aside - End */
+
+/* In Post Style */
+/* Space everything */
+#post > * {
+	margin: 2rem 0;
+}
+/* Links */
+#post a {
+	color: var(--c-main);
+}
+/* Blockquote */
+#post blockquote {
+	margin: 2rem 0;
+	padding: 0 2rem;
+	border-left: 5px solid var(--c-main);
+}
+/* Code */
+#post .highlight, pre {
+	overflow-x: auto;
+}
+#post pre {
+	font-size: 0.95rem;
+
+	background-color: hsla(0, 0%, 100%, .05);
+	border: 1px solid hsla(0, 0%, 100%, .1);
+
+	padding: 1rem;
+}
+/* Inline Code */
+:not(pre) > code {
+	font-size: 0.95rem;
+	padding: .05rem .4rem;
+}
+
+/* Titles */
+#post h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+}
+#post h2 {
+	font-size: 2rem;
+}
+#post h3 {
+	font-size: 1.6rem;
+}
+#post h4 {
+	font-size: 1.3rem;
+}
+
+/* List */
+#post ul, ol, li {
+	list-style: none;
+	line-height: 1.5rem;
+}
+#post ul, ol {
+	padding-left: 2rem;
+}
+#post ul li, ol li {
+	margin: 1rem 0;
+}
+#post ul li::before, ol li::before {
+	color: var(--c-accent);
+	font-weight: bold;
+	display: inline-block;
+	width: 1.5rem;
+	margin-left: -1.3rem;
+}
+#post ul li::before {
+	content: "\2022";
+}
+#post ol li::before {
+	content: "\2022";
+}
+
+/* Image */
+#post img {
+	width: 100%;
+}
+/* In Post Style - End */
+
+/* Media Query: Tablet */
+@media only screen and (min-width: 48rem) {
+	body > main {
+		padding: 1rem;
+	}
+}
+/* Media Query: Tablet - End */
+
+/* Media Query: Desktop */
+@media only screen and (min-width: 64rem) {
+	body > main {
+		flex-flow: row nowrap;
+		max-width: 90rem;
+		align-items: flex-start;
+		justify-content: center;
+	}
+	body > main > section {
+		max-width: 62rem;
+	}
+	body > main > aside {
+		flex: 0 0 25%;
+		width: auto;
+	}
+}
+/* Media Query: Desktop - End */
